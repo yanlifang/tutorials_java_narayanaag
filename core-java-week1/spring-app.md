@@ -35,7 +35,9 @@
    ```
 ### Beans or Business Objects
 1. Add annotation `@Component` to indicate its a bean managed by spring 
-2. `@Service` to indicate its a bean that has business logic - addtional 
+2. Registers bean to Application Context
+3. `@Service` to indicate its a bean that has business logic
+4. `@Repository` - catch persistence-specific exceptions and re-throw them as one of Spring’s unified unchecked exceptions.
    
 ### Bean congifuration
 1. Create java file BeanConfig by adding annotation `@Configuration`
@@ -43,5 +45,21 @@
    * `name`  - name of bean
    * `initMethod` - method to be called for initializing incase required
    * `destroyMethod` - method to be called for destruction.
+3. `@ComponentScan` 
+   * annotation to specify the packages that we want to be scanned for Beans. 
+   * without arguments tells Spring to scan the current package and all of its sub-packages
 
-##
+### Inject Beans into application
+Bean injection ways
+   1. Setter - define setters using standard java naming convention
+   2. Contructor - define contructor
+   3. field - add annotation `@Inject` on field
+   
+### Fetch Bean
+1. Fetch beans using `ApplicationContext.getBean`
+
+```
+ApplicationContext context = new AnnotationConfigApplicationContext(TravelSystemConfig.class);
+Vehicle vehicle = context.getBean("Car",Vehicle.class);
+vehicle.accelerate(5);
+```
