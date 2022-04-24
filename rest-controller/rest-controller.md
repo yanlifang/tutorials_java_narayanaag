@@ -100,3 +100,9 @@
  13. `save` method in `XXXRepository` - insert into DB
  14. `findAll` - finds all data in table.
    
+### Compile 
+Package the application using maven build command mvn clean package.
+### Start the server using IDE.
+### Make request to serve using end points defined
+1. GET : `http://localhost:8080/employees` - get data from database
+2. POST : `http://localhost:8080/employee` - write data to database 
